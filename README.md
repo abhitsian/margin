@@ -1,5 +1,7 @@
 # Margin
 
+**[🔗 Live site →](https://abhitsian.github.io/margin/)**
+
 A writing app that records how a document was made. You write in it; it captures the origin of every span as you go — what you typed, what you pasted, what AI wrote, what came from a third party — and exports a shareable **authorship record**: clean prose by default, the full provenance one toggle away.
 
 Built from the essay *Using AI for Writing like a Responsible Adult*. The premise: use AI to write, but share the receipts.
