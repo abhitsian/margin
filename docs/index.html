@@ -12,9 +12,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Charter&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#eef0ec; --panel:#e7e9e4; --ink:#15171a; --mut:#5a5f64; --faint:#8b9097;
-  --line:#d3d7d1; --line-strong:#15171a; --accent:#ff4d23; --accent-ink:#c5350f;
-  --typed:#15171a; --ai:#3b6ea5; --source:#5a6b54; --imported:#9b8f7a; --owned:#4a6b4a;
+  --bg:#17140e; --panel:#211d15; --paper:#211d15; --ink:#ece4d2; --mut:#a89e88; --faint:#766c5b;
+  --line:#2e2819; --line-strong:#544a37; --accent:#e6b24d; --accent-ink:#f1c878; --code-bg:#0e0c07;
+  --typed:#ece4d2; --ai:#7aa9dd; --source:#9bbb8f; --imported:#c2b291; --owned:#9bbb8f;
   --maxw:1080px; --mono:"IBM Plex Mono",ui-monospace,monospace; --sans:"Space Grotesk",system-ui,sans-serif;
 }
 *{box-sizing:border-box}
@@ -51,14 +51,14 @@ a{color:inherit}
 .btn.ghost:hover{background:var(--ink);color:var(--bg)}
 
 /* animated hero doc */
-.herodoc{background:#fbf9f4;border:1.5px solid var(--line-strong);box-shadow:7px 7px 0 var(--ink);padding:22px 24px}
+.herodoc{background:var(--paper);border:1.5px solid var(--line-strong);box-shadow:0 18px 50px rgba(0,0,0,.45);padding:22px 24px}
 .hd-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);display:flex;justify-content:space-between;margin-bottom:14px}
 .hd-paper{font-family:Charter,Georgia,serif;font-size:17px;line-height:1.85;min-height:148px;color:var(--ink)}
 .hd-caret{display:inline-block;width:2px;height:1.05em;background:var(--accent);vertical-align:-3px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 .run{border-radius:3px;padding:0 2px}
-.run.ai{background:rgba(59,110,165,.14);box-shadow:inset 0 0 0 1px rgba(59,110,165,.3)}
-.run.source{background:rgba(90,107,84,.17)}
+.run.ai{background:rgba(122,169,221,.18);box-shadow:inset 0 0 0 1px rgba(122,169,221,.4)}
+.run.source{background:rgba(155,187,143,.18)}
 .run.pop{opacity:0;transform:translateY(6px);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.7,.3,1)}
 .run.pop.in{opacity:1;transform:none}
 .hd-tag{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;vertical-align:2px}
@@ -82,7 +82,7 @@ h2{font-size:clamp(24px,4vw,40px);line-height:1.08;letter-spacing:-.02em;font-we
 .origins{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--line-strong);margin-top:8px}
 .origins .o{padding:22px 20px;border-right:1px solid var(--line);transition:background .2s;cursor:default}
 .origins .o:last-child{border-right:0}
-.origins .o:hover{background:#fbf9f4}
+.origins .o:hover{background:var(--paper)}
 .origins .dot{width:11px;height:11px;border-radius:50%;display:inline-block;margin-bottom:14px;transition:transform .2s}
 .origins .o:hover .dot{transform:scale(1.5)}
 .origins h3{font-size:16px;margin:0 0 6px;font-weight:600}
@@ -91,7 +91,7 @@ h2{font-size:clamp(24px,4vw,40px);line-height:1.08;letter-spacing:-.02em;font-we
 @media(max-width:760px){.origins{grid-template-columns:repeat(2,1fr)}.origins .o:nth-child(2){border-right:0}.origins .o:nth-child(1),.origins .o:nth-child(2){border-bottom:1px solid var(--line)}}
 
 /* the live demo */
-.demo{background:#fbf9f4;border:1.5px solid var(--line-strong);padding:clamp(22px,3vw,36px)}
+.demo{background:var(--paper);border:1.5px solid var(--line-strong);padding:clamp(22px,3vw,36px)}
 .demo-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:22px}
 .rec-label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
 .toggle-btn{font-family:var(--mono);font-size:12px;border:1.5px solid var(--line-strong);background:var(--bg);padding:8px 14px;cursor:pointer;transition:.15s}
@@ -105,9 +105,9 @@ h2{font-size:clamp(24px,4vw,40px);line-height:1.08;letter-spacing:-.02em;font-we
 .demo .run .mk{display:none;font-family:var(--mono);font-size:11px;font-weight:600;vertical-align:super;line-height:0;padding:0 2px}
 .demo.show .run .mk{display:inline}
 .demo .run.ai .mk{color:var(--ai)}.demo .run.source .mk{color:var(--source)}.demo .run.imported .mk{color:var(--imported)}
-.demo.show .run.ai{background:rgba(59,110,165,.13);box-shadow:0 0 0 1px rgba(59,110,165,.25);border-radius:3px}
-.demo.show .run.source{background:rgba(90,107,84,.14);border-radius:3px}
-.demo.show .run.imported{background:rgba(155,143,122,.16);border-radius:3px}
+.demo.show .run.ai{background:rgba(122,169,221,.2);box-shadow:0 0 0 1px rgba(122,169,221,.35);border-radius:3px}
+.demo.show .run.source{background:rgba(155,187,143,.2);border-radius:3px}
+.demo.show .run.imported{background:rgba(194,178,145,.2);border-radius:3px}
 .demo .run{transition:background .3s}
 .endnotes{max-height:0;overflow:hidden;transition:max-height .5s ease;margin-top:0}
 .demo.show .endnotes{max-height:600px;margin-top:28px;border-top:1px solid var(--line);padding-top:18px}
@@ -122,7 +122,7 @@ h2{font-size:clamp(24px,4vw,40px);line-height:1.08;letter-spacing:-.02em;font-we
 
 /* shots */
 .shots{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
-.shot{border:1.5px solid var(--line-strong);background:#fbf9f4;overflow:hidden}
+.shot{border:1.5px solid var(--line-strong);background:var(--paper);overflow:hidden}
 .shot img{width:100%;display:block;border-bottom:1px solid var(--line);transition:transform .4s ease}
 .shot:hover img{transform:scale(1.03)}
 .shot .cap{font-family:var(--mono);font-size:12px;color:var(--mut);padding:12px 16px}
@@ -130,8 +130,8 @@ h2{font-size:clamp(24px,4vw,40px);line-height:1.08;letter-spacing:-.02em;font-we
 @media(max-width:760px){.shots{grid-template-columns:1fr}}
 
 /* code block */
-.code{position:relative;font-family:var(--mono);font-size:12.5px;line-height:1.75;background:var(--ink);color:#e7e9e4;padding:20px 22px;overflow:auto;border:1.5px solid var(--line-strong);margin-top:8px}
-.code .c{color:#8b9097}.code .a{color:#ff8a6b}
+.code{position:relative;font-family:var(--mono);font-size:12.5px;line-height:1.75;background:var(--code-bg);color:var(--ink);padding:20px 22px;overflow:auto;border:1.5px solid var(--line-strong);margin-top:8px}
+.code .c{color:#766c5b}.code .a{color:var(--accent-ink)}
 .copy{position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:11px;background:#2a2d31;color:#cfd2d6;border:1px solid #3a3e43;padding:4px 9px;cursor:pointer}
 .copy:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
 
@@ -165,6 +165,7 @@ footer a:hover{color:var(--accent-ink)}
   <nav class="nav">
     <a href="#idea">The idea</a>
     <a href="#see">See it</a>
+    <a href="#coauthor">Lineage</a>
     <a href="#agents">Agents</a>
     <a href="#honest">Honest</a>
   </nav>
@@ -242,14 +243,24 @@ footer a:hover{color:var(--accent-ink)}
   </div>
 </div></section>
 
+<section id="coauthor"><div class="wrap reveal">
+  <div class="sec-head"><span class="sec-num">04</span><div><span class="kicker">Lineage</span><h2>Built on coauthor.</h2></div></div>
+  <p class="sub">Margin didn't start from scratch. It builds on <a href="https://github.com/abhitsian/coauthor" style="color:var(--accent-ink)">coauthor</a>, a shared surface where a human and an AI agent edit the same document. coauthor defined a small format: feedback anchored to exact spans of text, kept in a sidecar so the document stays clean.</p>
+  <p class="sub" style="margin-top:18px">Margin reuses that exact format. A document's provenance lives in a <code style="font-family:var(--mono);background:var(--code-bg);padding:1px 5px;border-radius:3px">.coauthor</code> sidecar, the same anchored-metadata file coauthor reads. So provenance and the agent's feedback loop sit in one file, with no conversion: an agent can review a Margin document, and a coauthor document can carry provenance.</p>
+  <div class="cols" style="margin-top:28px">
+    <div class="col is"><h4>coauthor solved</h4><ul><li>How a human and an agent <b>shape a document together</b>: anchored comments, version history, a clean sidecar.</li></ul></div>
+    <div class="col isnt" style="border:0"><h4 style="color:var(--accent-ink)">Margin adds</h4><ul><li>And <b>remember who shaped which part</b>: the same sidecar now also carries the origin of every span.</li></ul></div>
+  </div>
+</div></section>
+
 <section id="agents"><div class="wrap reveal">
-  <div class="sec-head"><span class="sec-num">04</span><div><span class="kicker">Agents</span><h2>Let a coding agent write, and keep the receipts.</h2></div></div>
+  <div class="sec-head"><span class="sec-num">05</span><div><span class="kicker">Agents</span><h2>Let a coding agent write, and keep the receipts.</h2></div></div>
   <p class="sub">Point Claude Code at your workspace. It edits through a CLI and an MCP server, so every change it makes is recorded as AI-attributed provenance, carrying the prompt that caused it. The edit appears in your open editor live.</p>
   <div class="code"><button class="copy" onclick="copyCode(this)">copy</button><span class="c"># tighten paragraph three, and keep the provenance</span><br>margin revise weekly-note \<br>&nbsp;&nbsp;--find <span class="a">"then we fixed it"</span> \<br>&nbsp;&nbsp;--prompt <span class="a">"say what we actually did, concrete"</span> \<br>&nbsp;&nbsp;--text <span class="a">"The fix shipped Thursday behind a flag..."</span><br><br><span class="c"># the rewrite lands in the editor, marked AI, with its prompt</span></div>
 </div></section>
 
 <section id="honest"><div class="wrap reveal">
-  <div class="sec-head"><span class="sec-num">05</span><div><span class="kicker">Honest</span><h2>What it is, and what it isn't.</h2></div></div>
+  <div class="sec-head"><span class="sec-num">06</span><div><span class="kicker">Honest</span><h2>What it is, and what it isn't.</h2></div></div>
   <div class="cols">
     <div class="col is"><h4>What it is</h4><ul>
       <li><b>Good-faith "show your work."</b> A record you sign, the way you'd show your work in math class.</li>
