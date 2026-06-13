@@ -1,0 +1,8 @@
+{
+  "name": "Margin",
+  "type": "node",
+  "entry": "server.js",
+  "port": 5151,
+  "open": "http://localhost:5151",
+  "description": "Responsible-adult writing tool: honest margin notes (never a rewrite), a blind pattern tester, and a proof-of-authorship record for AI-assisted writing."
+}

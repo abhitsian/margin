@@ -1,0 +1,7 @@
+node_modules/
+dist/
+shares/
+records/
+*.zip
+*.log
+.DS_Store

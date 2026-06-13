@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Margin</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<!-- minimal chrome: appears on hover, gets out of the way while writing -->
+<div id="topbar">
+  <button id="docsBtn" title="Documents (⌘O)">☰</button>
+  <span id="saveState" class="savestate"></span>
+  <div id="docsList" class="docslist hidden"></div>
+</div>
+
+<main class="page">
+  <input id="wTitle" class="doctitle" placeholder="Title" />
+  <div id="editor" class="editor" contenteditable="true" spellcheck="true"
+       data-placeholder="Start writing. What you type is yours. ⌘J asks AI here · paste declares its source."></div>
+</main>
+
+<!-- on-demand: selection toolbar -->
+<div id="selToolbar" class="seltoolbar hidden">
+  <button id="askAgentBtn" class="stbtn">✦ Ask agent</button>
+  <button id="commentBtn" class="stbtn ghosty">💬 Comment</button>
+</div>
+
+<!-- on-demand: agent popover (revise selection / comment / generate at cursor) -->
+<div id="agentPop" class="agentpop hidden">
+  <div class="aphead" id="apHead">Tell the agent what to change</div>
+  <p class="apsel" id="apSel"></p>
+  <textarea id="apInput" class="aifield" placeholder="e.g. tighten this · this hedges, commit · make it concrete"></textarea>
+  <div class="apactions">
+    <button id="apCancel" class="ghost">Cancel</button>
+    <button id="apSubmit" class="primary">Revise</button>
+  </div>
+  <div id="apStatus" class="aistatus"></div>
+</div>
+
+<!-- on-demand: paste attribution -->
+<div id="pasteModal" class="modal hidden">
+  <div class="sheet">
+    <h3>Where's this from?</h3>
+    <p class="msnip" id="pasteSnip"></p>
+    <p class="mhint">Typed text is yours. Pasted text can't be — tell the reader where it came from.</p>
+    <div class="mchoices">
+      <button class="mchoice" data-origin="source"><b>A source</b><small>quote, article, doc — adds a citation</small></button>
+      <button class="mchoice" data-origin="ai"><b>From an AI prompt</b><small>generated elsewhere — record the prompt</small></button>
+      <button class="mchoice" data-origin="own"><b>My own earlier writing</b><small>yours, but not typed here</small></button>
+      <button class="mchoice" data-origin="imported"><b>A third-party document</b><small>someone else's text you're building on — not yours</small></button>
+    </div>
+    <div id="mDetail" class="mdetail hidden">
+      <label class="albl" id="mLabel">Citation</label>
+      <input id="mField" class="aifield" />
+      <input id="mNotes" class="aifield hidden" placeholder="your notes behind it" />
+      <div class="mactions">
+        <button id="mCancel" class="ghost">Cancel</button>
+        <button id="mConfirm" class="primary">Insert attributed</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="err" class="err hidden"></div>
+<script src="/md.js"></script>
+<script src="/write.js"></script>
+</body>
+</html>

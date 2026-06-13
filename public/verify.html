@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Margin · Verify</title>
+<style>
+:root{--paper:#fbf7ee;--ink:#23201a;--faint:#6b6356;--line:#e3dccb;--ok:#4a6b4a;--bad:#9a3b2e;--ai:#3b6ea5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 Charter,Georgia,serif}
+.wrap{max-width:660px;margin:0 auto;padding:48px 26px 90px}
+h1{font-size:30px;letter-spacing:-.5px;margin:0 0 4px}
+.tag{color:var(--faint);font-style:italic;margin:0 0 24px}
+.drop{display:block;border:1.5px dashed var(--line);border-radius:12px;background:#fff;padding:38px 24px;text-align:center;cursor:pointer;transition:border-color .15s}
+.drop:hover,.drop.over{border-color:var(--ai)}
+.drop b{display:block;font-size:16px}
+.drop small{color:var(--faint)}
+input[type=file]{display:none}
+.or{text-align:center;color:var(--faint);font-size:13px;margin:14px 0}
+textarea{width:100%;min-height:90px;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font:inherit;font-size:13px;color:var(--ink);resize:vertical}
+.go{margin-top:10px;background:var(--ink);color:var(--paper);border:0;border-radius:8px;padding:10px 20px;font:inherit;font-size:15px;cursor:pointer}
+.result{margin-top:26px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:20px 22px;display:none}
+.result.show{display:block}
+.verdict{font-size:22px;font-weight:600;display:flex;align-items:center;gap:10px}
+.verdict.intact{color:var(--ok)}.verdict.edited{color:var(--bad)}
+.badge{width:13px;height:13px;border-radius:50%}
+.verdict.intact .badge{background:var(--ok)}.verdict.edited .badge{background:var(--bad)}
+.sub{color:var(--faint);font-size:14.5px;margin:6px 0 16px}
+.check{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line);font-size:14.5px}
+.check .ic{font-weight:700;flex:none;width:18px}
+.check .ic.y{color:var(--ok)}.check .ic.n{color:var(--bad)}
+.mono{font-family:ui-monospace,Menlo,monospace;font-size:12.5px}
+.fps{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;color:var(--faint);font-size:12.5px}
+.comp{margin-top:16px;font-size:13.5px;color:var(--faint)}
+.comp b{color:var(--ink)}
+.err{color:var(--bad);font-size:14px;margin-top:14px}
+a{color:var(--ai)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Verify a record</h1>
+  <p class="tag">Recomputes the fingerprint from the record's own embedded data — entirely in your browser. Nothing is uploaded.</p>
+
+  <label class="drop" id="drop">
+    <b>Drop a Margin record here</b>
+    <small>or click to choose an .html file</small>
+    <input type="file" id="file" accept=".html,text/html" />
+  </label>
+  <div class="or">— or paste the record's HTML —</div>
+  <textarea id="paste" placeholder="paste the full HTML of a Margin authorship record"></textarea>
+  <button class="go" id="goBtn">Verify pasted HTML</button>
+
+  <div class="result" id="result"></div>
+  <div class="err" id="err"></div>
+</div>
+<script src="/verify.js"></script>
+</body>
+</html>

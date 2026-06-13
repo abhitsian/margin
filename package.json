@@ -1,0 +1,31 @@
+{
+  "name": "margin",
+  "version": "0.1.0",
+  "description": "A writing app that captures provenance as you write — typed is yours, pasted declares its source, AI carries its prompt — and exports a signed authorship record.",
+  "main": "electron/main.js",
+  "bin": { "margin": "bin/margin.js" },
+  "scripts": {
+    "server": "node server.js",
+    "start": "electron .",
+    "dist": "electron-builder --mac"
+  },
+  "build": {
+    "appId": "com.abhishek.margin",
+    "productName": "Margin",
+    "files": [
+      "electron/**",
+      "public/**",
+      "*.js",
+      "!records/**",
+      "!shares/**"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": "dir"
+    }
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^26.15.3"
+  }
+}
